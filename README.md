@@ -6,7 +6,7 @@
 
 - **POST** → `/api/shorturtl` - create and return shorturl
 - **GET** → `/api/shorturtl/:shorturtl` - redirect to original url
-- **DELETE** → `/api/shorturč/:shorturl` - delete shorturl
+- **DELETE** → `/api/shorturl/:shorturl` - delete shorturl
 
 ### Example usage
 
