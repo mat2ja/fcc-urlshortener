@@ -21,8 +21,8 @@
     ```json
     {
         "created_at": "2021-09-11T14:31:28.397Z",
-        "url": "https://rainymood.com/",
-        "shorturl": 3
+        "original_url": "https://rainymood.com/",
+        "short_turl": 3
     }
     ```
 - **GET** → [`/api/shorturl/3`](https://fcc-urlshortener-69.herokuapp.com/api/shorturl/3)
