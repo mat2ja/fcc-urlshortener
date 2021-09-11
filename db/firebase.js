@@ -8,13 +8,19 @@ const db_url = process.env.FIREBASE_URL;
 const storeUrl = async ({ url, shorturl }) => {
 	try {
 		const created_at = new Date(Date.now());
-		const { data: storedUrl } = await axios.put(
+		const { data: urlData } = await axios.put(
 			`${db_url}/shorturls/${shorturl}.json`,
-			{ url, created_at }
+			{
+				original_url: url,
+				created_at,
+			}
 		);
 		const stats = await updateStats(shorturl);
 
-		return { data: { ...storedUrl, shorturl }, stats };
+		return {
+			data: { ...urlData, short_url: shorturl },
+			stats,
+		};
 	} catch (error) {
 		console.log(error);
 	}
@@ -29,8 +35,7 @@ const fetchUrl = async (shorturl) => {
 // Fetch stored url
 const deleteUrl = async (shorturl) => {
 	console.log('deleteUrl', shorturl);
-	const { data } = await axios.put(`${db_url}/shorturls/${shorturl}.json`, {});
-	console.log(data);
+	await axios.put(`${db_url}/shorturls/${shorturl}.json`, {});
 };
 
 // Get new shorturl id
@@ -40,7 +45,7 @@ const getNewShorturl = async () => {
 		const nextUrl = data.latest_id + 1;
 		return nextUrl;
 	} catch (error) {
-		throw new Error({ erorr: 'Error getting shorturl' });
+		throw new Error({ erorr: 'error getting short url' });
 	}
 };
 

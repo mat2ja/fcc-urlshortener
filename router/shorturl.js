@@ -9,9 +9,9 @@ router.post('/api/shorturl', async (req, res) => {
 		const { url } = req.body;
 
 		if (!url) {
-			throw new Error('URL not provided');
+			throw new Error('url not found');
 		} else if (!isUrl(url)) {
-			throw new Error('Invalid URL');
+			throw new Error('invalid url');
 		}
 
 		const shorturl = await fb.getNewShorturl();
@@ -34,9 +34,9 @@ router.get('/api/shorturl/:shorturl', async (req, res) => {
 	try {
 		const fetchedUrl = await fb.fetchUrl(req.params.shorturl);
 		if (!fetchedUrl) {
-			res.status(404).send({ error: 'URL not found' });
+			res.status(404).send({ error: 'url not found' });
 		}
-		res.redirect(fetchedUrl.url);
+		res.redirect(fetchedUrl.original_url);
 	} catch (error) {
 		res.status(500).send();
 	}
@@ -45,7 +45,7 @@ router.get('/api/shorturl/:shorturl', async (req, res) => {
 router.delete('/api/shorturl/:shorturl', async (req, res) => {
 	try {
 		await fb.deleteUrl(req.params.shorturl);
-		res.status(200).send('URL deleted');
+		res.status(200).send('url deleted');
 	} catch (error) {
 		res.status(400).send();
 	}
