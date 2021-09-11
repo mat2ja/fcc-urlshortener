@@ -1,5 +1,7 @@
 ### [Heroku deploy](https://fcc-urlshortener-69.herokuapp.com/)
 
+![image](https://user-images.githubusercontent.com/46557266/132951004-665d4947-9576-4d69-a3d4-9b25d8293ab8.png)
+
 ### Endpoints
 
 - **POST** → `/api/shorturtl` - create and return shorturl
@@ -12,7 +14,7 @@
 
     Body:
     ```json
-    { "url", "https://fcc-urlshortener-69.herokuapp.com/" }
+    { "url": "https://fcc-urlshortener-69.herokuapp.com/" }
     ```
 
     Response:
@@ -23,4 +25,4 @@
         "shorturl": 6
     }
     ```
-- **GET** → [`/api/shorturl/6`](https://fcc-urlshortener-69.herokuapp.com/api/6)
+- **GET** → [`/api/shorturl/6`](https://fcc-urlshortener-69.herokuapp.com/api/shorturl/6)
