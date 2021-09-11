@@ -15,16 +15,25 @@
     <h1>URL Shortener Microservice</h1>
     <main>
       <section>
-        <form action="api/shorturl" method="POST">
+        <form action="api/shorturl" method="POST" class="form-og">
           <fieldset>
-            <legend>URL Shortener</legend>
+            <legend>Short your url</legend>
             <div>
-              <label for="url_input">URL</label>
               <input id="url_input" type="text" name="url" placeholder="https://www.freecodecamp.org/" class="mono" />
               <button type="submit">POST URL</button>
             </div>
           </fieldset>
         </form>
+      </section>
+      <form id="form-short">
+        <fieldset>
+          <legend>Find your url</legend>
+          <div>
+            <input id="url_input" type="text" name="url" placeholder="3" class="mono" />
+            <button type="submit">FIND URL</button>
+          </div>
+        </fieldset>
+      </form>
       </section>
       <section class="example-wrapper">
         <div class="example">
@@ -41,6 +50,15 @@
         By <a href="https://github.com/mat2ja" target="_blank">Matija</a>
       </p>
     </footer>
+
+    <script>
+      const formShort = document.querySelector('#form-short')
+      formShort.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const shortUrl = formShort.querySelector('input').value.trim()
+        window.location.href = `/api/shorturl/${shortUrl}`
+      })
+    </script>
 
   </body>
 
