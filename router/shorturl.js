@@ -4,7 +4,9 @@ const fb = require('../db/firebase.js');
 const router = new express.Router();
 
 const isUrl = (url) => {
-	return /(?<=(http|https):\/\/)[^\/]+/.test(url);
+	const regex =
+		/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+	return regex.test(url);
 };
 
 router.post('/api/shorturl', async (req, res) => {
