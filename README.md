@@ -1,29 +1,26 @@
-# [URL Shortener Microservice](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/url-shortener-microservice)
-
-
-
-### [Heroku deploy](https://timestamp-service-freecodecamp.herokuapp.com/)
-
-![image](https://user-images.githubusercontent.com/46557266/132124405-881f168b-1c65-4337-84f9-fc3ae4fa679c.png)
-
+### [Heroku deploy](https://fcc-urlshortener-69.herokuapp.com/)
 
 ### Endpoints
 
-- `/api` - get current date
-- `/api/:unix_timestamp` - get by unix timestamp
-- `/api/:date` - get by date string ('YYYY-MM-DD')
+- **POST** → `/api/shorturtl` - create and return shorturl
+- **GET** → `/api/shorturtl/:shorturtl` - redirect to original url
+- **DELETE** → `/api/shorturč/:shorturl` - delete shorturl
 
 ### Example usage
 
-- [`/api`](https://timestamp-service-freecodecamp.herokuapp.com/api)
-- [`/api/1608854400000`](https://timestamp-service-freecodecamp.herokuapp.com/api/1608854400000)
-- [`/api/2020-12-25`](https://timestamp-service-freecodecamp.herokuapp.com/api/2020-12-25)
+- **POST** → [`/api/shorturl`](https://rainymood.com/)
 
-### Example output
+    Body:
+    ```json
+    { "url", "https://fcc-urlshortener-69.herokuapp.com/" }
+    ```
 
-```json
-{
-    "unix": 1608854400000, 
-    "utc": "Fri, 25 Dec 2015 00:00:00 GMT"
-}
-```
+    Response:
+    ```json
+    {
+        "created_at": "2021-09-11T14:13:42.150Z",
+        "url": "https://rainymood.com/",
+        "shorturl": 6
+    }
+    ```
+- **GET** → [`/api/shorturl/6`](https://fcc-urlshortener-69.herokuapp.com/api/6)
