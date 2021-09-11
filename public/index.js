@@ -1,16 +1,21 @@
 const form = document.querySelector('form');
-console.log(form);
 
 form.addEventListener('submit', async (e) => {
 	e.preventDefault();
-	console.log(form.submit());
-	// console.log(e);
-	// e.preventDefault();
-	// const urlInput = document.querySelector('#url_input');
-	// console.log(urlInput);
-	// const url = urlInput.value.trim();
-	// await axios.post('/api/shorturl', {
-	// 	url,
-	// });
-	// form.submit();
+	const urlInput = document.querySelector('#url_input');
+	const url = urlInput.value.trim();
+	try {
+		const { status, data } = await axios.post(
+			'/api/shorturl',
+			{ url },
+			{ validateStatus: () => true }
+		);
+		if (status >= 400) {
+			throw new Error(data.error);
+		}
+		const { shorturl } = data;
+		window.location.href = `/api/shorturl/${shorturl}`;
+	} catch (error) {
+		console.error(error.message);
+	}
 });

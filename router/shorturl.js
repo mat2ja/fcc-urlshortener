@@ -26,7 +26,7 @@ router.post('/api/shorturl', async (req, res) => {
 
 		res.status(201).send(data);
 	} catch (error) {
-		res.status(404).send({ error: error.message });
+		res.status(400).send({ error: error.message });
 	}
 });
 
