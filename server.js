@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ optionsSuccessStatus: 200 }));
 app.use(express.static('public'));
+
 app.use(shorturlRouter);
 
 app.get('/', (req, res) => {

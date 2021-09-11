@@ -34,6 +34,7 @@ body {
 
 main {
 	padding: 2rem 0;
+	height: 100%;
 }
 
 h1 {
@@ -49,10 +50,6 @@ h1 {
 	transform: rotate(-2deg);
 }
 
-h3 {
-	margin-top: 30px;
-}
-
 .user-stories li {
 	margin-bottom: 1em;
 }
@@ -64,15 +61,15 @@ a {
 form {
 	margin-top: 2rem;
 	margin: 10px auto;
-	padding: 20px;
+	padding: 1em;
 	max-width: 600px;
 	transform: rotate(2deg);
 }
 
 fieldset {
 	padding: 1rem;
+	border: 2px solid var(--bg-secondary);
 	border-radius: 2px;
-	border-color: var(--bg-secondary);
 }
 
 legend {
@@ -107,7 +104,7 @@ form button {
 }
 
 form button:hover {
-	background: var(--color-primary-light);
+	background: var(--color-primary);
 }
 
 input {
@@ -115,7 +112,6 @@ input {
 	color: var(--text-primary);
 	flex: 1;
 	font-size: 1rem;
-	font-family: 'IBM Plex Mono', monospace;
 }
 
 input:focus {
@@ -128,6 +124,46 @@ fieldset > div {
 	display: flex;
 	justify-content: center;
 	gap: 0.5rem;
+}
+
+.example-wrapper {
+	padding: 1rem;
+	max-width: 600px;
+	margin: 2rem auto 0;
+}
+
+.example {
+	border: 2px solid var(--bg-secondary);
+	transform: rotate(-2deg);
+	font-size: 1.6rem;
+	border-radius: 2px;
+	padding: 1em;
+}
+
+a {
+	color: var(--color-primary);
+	display: block;
+}
+
+a:hover {
+	color: var(--color-primary-light);
+}
+
+.mono {
+	font-family: 'IBM Plex Mono', monospace;
+}
+
+.example .mono {
+	margin: 0.75rem 0;
+}
+
+.example .mono:last-of-type {
+	color: var(--color-primary-light);
+}
+
+h4 {
+	font-size: 1.2rem;
+	text-transform: uppercase;
 }
 
 footer {
