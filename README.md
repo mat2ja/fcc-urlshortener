@@ -1,6 +1,6 @@
 ### [Heroku deploy](https://fcc-urlshortener-69.herokuapp.com/)
 
-![image](https://user-images.githubusercontent.com/46557266/132952117-8588382b-ff6d-482a-a879-b6d0a7118539.png)
+![image](https://user-images.githubusercontent.com/46557266/132952452-424821a9-b61b-4153-b518-d43ab0f6a338.png)
 
 ### Endpoints
 
