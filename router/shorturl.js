@@ -17,7 +17,6 @@ router.post('/api/shorturl', async (req, res) => {
 			throw new Error('url not found');
 		} else if (!isUrl(url)) {
 			throw new Error('invalid url');
-			// return res.send({ error: 'invalid url' });
 		}
 
 		const shorturl = await fb.getNewShorturl();
