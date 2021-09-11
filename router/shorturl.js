@@ -1,8 +1,11 @@
 const express = require('express');
-const isUrl = require('validator/lib/isURL');
 const fb = require('../db/firebase.js');
 
 const router = new express.Router();
+
+const isUrl = (url) => {
+	return /(?<=(http|https):\/\/)[^\/]+/.test(url);
+};
 
 router.post('/api/shorturl', async (req, res) => {
 	try {

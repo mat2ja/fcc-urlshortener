@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const isUrl = require('validator/lib/isURL');
 const shorturlRouter = require('./router/shorturl.js');
 
 const app = express();
