@@ -3,6 +3,17 @@
 	padding: 0;
 }
 
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 100%;
+}
+
 :root {
 	--color-primary: #ff6e40;
 	--color-primary-light: #ff9e80;
@@ -29,7 +40,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	overflow-x: hidden;
-	margin-top: 5vh;
 }
 
 main {
@@ -43,7 +53,7 @@ h1 {
 	line-height: 1.2;
 	font-size: 1.8em;
 	display: inline-block;
-	width: max-content;
+	width: auto;
 	margin: 0 auto;
 	padding: 0 0.4rem;
 	border-radius: 2px;
@@ -137,12 +147,12 @@ fieldset > div {
 	transform: rotate(-2deg);
 	font-size: 1.6rem;
 	border-radius: 2px;
-	padding: 1em;
+	padding: 1rem;
 }
 
 a {
 	color: var(--color-primary);
-	display: block;
+	display: inline-block;
 }
 
 a:hover {
@@ -179,4 +189,26 @@ footer a {
 
 footer a:hover {
 	background: var(--bg-secondary);
+}
+
+@media only screen and (max-width: 500px) {
+	a {
+		font-size: 1.2rem;
+	}
+
+	label {
+		display: none;
+	}
+
+	fieldset > div {
+		flex-direction: column;
+	}
+
+	form input {
+		padding: 0.75rem;
+	}
+
+	form button {
+		padding: 0.75rem;
+	}
 }
