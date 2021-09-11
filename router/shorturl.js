@@ -16,12 +16,13 @@ router.post('/api/shorturl', async (req, res) => {
 		if (!url) {
 			throw new Error('url not found');
 		} else if (!isUrl(url)) {
-			throw new Error('invalid url');
+			// throw new Error('invalid url');
+			return res.status(200).send({ error: 'invalid url' });
 		}
 
 		const shorturl = await fb.getNewShorturl();
 		if (!shorturl) {
-			res.status(500).send();
+			return res.status(500).send();
 		}
 
 		const { data, stats } = await fb.storeUrl({
