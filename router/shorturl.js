@@ -36,7 +36,7 @@ router.get('/api/shorturl/:shorturl', async (req, res) => {
 		if (!fetchedUrl) {
 			res.status(404).send({ error: 'URL not found' });
 		}
-		res.send(fetchedUrl);
+		res.redirect(fetchedUrl.url);
 	} catch (error) {
 		res.status(500).send();
 	}
